@@ -24,6 +24,17 @@ describe Account do
 
   end
 
+  it "shows currency" do
+    account = Account.new  
+    account.balance = 40
+
+    account.deposit(1.50)
+    account.save
+    account.balance.should eq(41.50)
+
+ 
+  end
+
   it "shows current balance of account" do
     account = Account.new  
     account.balance = 40
