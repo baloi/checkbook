@@ -12,7 +12,9 @@ class Checkbook
 end
 
 class Account < Sequel::Model
-
+  def deposit(amount)
+    self.balance = self.balance + amount
+  end
 end
 
 def create_database
@@ -22,3 +24,8 @@ def create_database
     Numeric :balance
   end
 end
+
+def clear_database
+  DB[:accounts].delete
+end
+
